@@ -1,0 +1,23 @@
+# User Specific
+linkedin_post.md
+
+# Build Artifacts (Windows/CUDA)
+*.exe
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.dll
+*.ipdb
+*.iobj
+
+# Visual Studio Directories
+.vs/
+x64/
+Debug/
+Release/
+*.user
+*.suo
+*.opensdf
+*.sdf
