@@ -18,13 +18,22 @@ if %errorlevel% neq 0 (
     )
 )
 
-echo Running NVCC...
+echo Running NVCC for matrix_mul.cu...
 nvcc matrix_mul.cu -o matrix_mul.exe
 if %errorlevel% neq 0 (
-    echo [ERROR] NVCC Compilation failed!
+    echo [ERROR] NVCC Compilation of matrix_mul.cu failed!
+    exit /b %errorlevel%
+)
+
+echo Running NVCC for matrix_mul_advance_tiling.cu...
+nvcc matrix_mul_advance_tiling.cu -o matrix_mul_advance_tiling.exe
+if %errorlevel% neq 0 (
+    echo [ERROR] NVCC Compilation of matrix_mul_advance_tiling.cu failed!
     exit /b %errorlevel%
 )
 
 echo [SUCCESS] Compilation successful!
 echo Running matrix_mul.exe...
 matrix_mul.exe
+echo Running matrix_mul_advance_tiling.exe...
+matrix_mul_advance_tiling.exe
